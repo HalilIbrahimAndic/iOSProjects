@@ -69,6 +69,10 @@ class DetailViewController: UIViewController {
         } catch {
             print("error: \(error)")
         }
+        
+        //Notify 1st screen to reload data
+        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newData"), object: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
 }
