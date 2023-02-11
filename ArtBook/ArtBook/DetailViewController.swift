@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController {
 
@@ -13,10 +14,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var artistText: UITextField!
     @IBOutlet weak var yearText: UITextField!
+    @IBOutlet weak var button: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //hide save button at the beginning
+        button.isHidden = true
 
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(gestureRecognizer)
@@ -32,8 +37,6 @@ class DetailViewController: UIViewController {
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true //editing
         present(picker, animated: true, completion: nil)
-        
-        print("gorsele tikladim")
     }
     
     @objc func hideKeyboard() {
@@ -41,6 +44,31 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let newPainting = NSEntityDescription.insertNewObject(forEntityName: "Paintings", into: context)
+        
+        //Attributes
+        newPainting.setValue(nameText.text!, forKey: "name")
+        newPainting.setValue(artistText.text!, forKey: "artist")
+        newPainting.setValue(UUID(), forKey: "id")
+        
+        if let year = Int(yearText.text!) {
+            newPainting.setValue(year, forKey: "year")
+        }
+        
+        let data = imageView.image!.jpegData(compressionQuality: 0.5)
+        newPainting.setValue(data, forKey: "image")
+        
+        // save context
+        do {
+            try context.save()
+            print("Saved")
+        } catch {
+            print("error: \(error)")
+        }
     }
 
 }
@@ -51,5 +79,7 @@ extension DetailViewController: UIImagePickerControllerDelegate, UINavigationCon
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage  // I'm not 100% sure that user selected an image. so used as? casting
         self.dismiss(animated: true, completion: nil)
+        
+        button.isHidden = false
     }
 }

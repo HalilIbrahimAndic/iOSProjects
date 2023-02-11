@@ -106,6 +106,7 @@
                     <navigationItem key="navigationItem" id="4Dz-XZ-N1v"/>
                     <connections>
                         <outlet property="artistText" destination="167-55-9Ah" id="VmB-eR-8D6"/>
+                        <outlet property="button" destination="fpH-Yu-JgN" id="R6B-6M-yAM"/>
                         <outlet property="imageView" destination="0YZ-1D-zbW" id="HPc-7C-sOQ"/>
                         <outlet property="nameText" destination="2SG-aS-Mqs" id="xON-d7-EsZ"/>
                         <outlet property="yearText" destination="ajc-oj-nf1" id="YPK-7Z-59f"/>
