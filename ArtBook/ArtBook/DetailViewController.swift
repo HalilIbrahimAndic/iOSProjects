@@ -16,6 +16,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var yearText: UITextField!
     @IBOutlet weak var button: UIButton!
     
+    var chosenPainting = ""
+    var chosenPaintingID: UUID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,49 @@ class DetailViewController: UIViewController {
         imageView.isUserInteractionEnabled = true
         let imageTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectImage))
         imageView.addGestureRecognizer(imageTapRecognizer)
+        
+        //show data
+        if chosenPainting != "" {
+            retrieveData(chosenPaintingID!)
+        }
+    }
+    
+    func retrieveData(_ id: UUID) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let idString = chosenPaintingID?.uuidString
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Paintings")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        fetchRequest.predicate = NSPredicate(format: "id = %@", idString!)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            
+            for result in results as! [NSManagedObject] {
+                
+                if let name = result.value(forKey: "name") as? String {
+                    nameText.text = name
+                }
+                
+                if let artist = result.value(forKey: "artist") as? String {
+                    artistText.text = artist
+                }
+                
+                if let year = result.value(forKey: "year") as? Int {
+                    yearText.text = String(year)
+                }
+                
+                if let imageData = result.value(forKey: "image") as? Data {
+                    let image = UIImage(data: imageData)
+                    imageView.image = image
+                }
+            }
+        } catch {
+            print("Error: \(error)")
+        }
+        
     }
     
     @objc func selectImage() {
@@ -65,13 +110,10 @@ class DetailViewController: UIViewController {
         // save context
         do {
             try context.save()
-            print("Saved")
         } catch {
             print("error: \(error)")
         }
-        
-        //Notify 1st screen to reload data
-        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newData"), object: nil)
+
         self.navigationController?.popViewController(animated: true)
     }
 
