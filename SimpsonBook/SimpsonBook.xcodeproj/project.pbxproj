@@ -13,8 +13,8 @@
 		209CC9CC2997A22400BBE7B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209CC9CA2997A22400BBE7B8 /* Main.storyboard */; };
 		209CC9CE2997A22A00BBE7B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 209CC9CD2997A22A00BBE7B8 /* Assets.xcassets */; };
 		209CC9D12997A22A00BBE7B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 209CC9CF2997A22A00BBE7B8 /* LaunchScreen.storyboard */; };
-		209CC9DA2997A44900BBE7B8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CC9D92997A44900BBE7B8 /* DetailViewController.swift */; };
-		209CC9DE2997A6B800BBE7B8 /* Simpsons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CC9DD2997A6B800BBE7B8 /* Simpsons.swift */; };
+		209CC9EA2997AA5100BBE7B8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CC9D92997A44900BBE7B8 /* DetailViewController.swift */; };
+		209CC9ED2997AA5E00BBE7B8 /* Simpsons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209CC9DD2997A6B800BBE7B8 /* Simpsons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +62,7 @@
 			children = (
 				209CC9E72997A99400BBE7B8 /* SupportFiles */,
 				209CC9E02997A93B00BBE7B8 /* Model */,
+				209CC9E22997A94300BBE7B8 /* View */,
 				209CC9E42997A96700BBE7B8 /* Controller */,
 				209CC9CD2997A22A00BBE7B8 /* Assets.xcassets */,
 			);
@@ -71,7 +72,6 @@
 		209CC9E02997A93B00BBE7B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				209CC9E22997A94300BBE7B8 /* View */,
 				209CC9DD2997A6B800BBE7B8 /* Simpsons.swift */,
 			);
 			path = Model;
@@ -177,9 +177,9 @@
 			files = (
 				209CC9C92997A22400BBE7B8 /* ViewController.swift in Sources */,
 				209CC9C52997A22400BBE7B8 /* AppDelegate.swift in Sources */,
+				209CC9EA2997AA5100BBE7B8 /* DetailViewController.swift in Sources */,
 				209CC9C72997A22400BBE7B8 /* SceneDelegate.swift in Sources */,
-				209CC9DA2997A44900BBE7B8 /* DetailViewController.swift in Sources */,
-				209CC9DE2997A6B800BBE7B8 /* Simpsons.swift in Sources */,
+				209CC9ED2997AA5E00BBE7B8 /* Simpsons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

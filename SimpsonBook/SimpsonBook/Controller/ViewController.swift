@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var simpsonArray: [Simpsons] = []
+    var chosenSimpson: Simpsons?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chosenSimpson = simpsonArray[indexPath.row]
+        self.performSegue(withIdentifier: "toDetailVC", sender: nil)
+    }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            let detailVC = segue.destination as! DetailViewController
+            detailVC.selectedSimpson = chosenSimpson
+        }
+    }
 }
 
