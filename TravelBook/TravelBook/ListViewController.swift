@@ -27,7 +27,12 @@ class ListViewController: UIViewController {
         retrieveData()
     }
     
-    func retrieveData() {
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(retrieveData), name: NSNotification.Name("newPlace"), object: nil)
+        tableView.reloadData()
+    }
+    
+    @objc func retrieveData() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
