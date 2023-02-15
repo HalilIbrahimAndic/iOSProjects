@@ -13,10 +13,10 @@
 		2057E4C5299BABC700FE23E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2057E4C3299BABC700FE23E8 /* Main.storyboard */; };
 		2057E4C7299BABC900FE23E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2057E4C6299BABC900FE23E8 /* Assets.xcassets */; };
 		2057E4CA299BABC900FE23E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2057E4C8299BABC900FE23E8 /* LaunchScreen.storyboard */; };
-		2057E4D3299BAD0100FE23E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2057E4D2299BAD0100FE23E8 /* GoogleService-Info.plist */; };
 		2057E4E7299CF62D00FE23E8 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057E4E6299CF62D00FE23E8 /* FeedViewController.swift */; };
 		2057E4EA299CF63C00FE23E8 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057E4E9299CF63C00FE23E8 /* UploadViewController.swift */; };
 		2057E4ED299CF64A00FE23E8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057E4EC299CF64A00FE23E8 /* SettingsViewController.swift */; };
+		2057E4F5299CFDAF00FE23E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2057E4F4299CFDAF00FE23E8 /* GoogleService-Info.plist */; };
 		2C0BD17CF5F76985D005A0DA /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D6027A11F01297DDE605B5 /* Pods_InstagramClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,10 +29,10 @@
 		2057E4C6299BABC900FE23E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2057E4C9299BABC900FE23E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2057E4CB299BABC900FE23E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2057E4D2299BAD0100FE23E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2057E4E6299CF62D00FE23E8 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		2057E4E9299CF63C00FE23E8 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		2057E4EC299CF64A00FE23E8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2057E4F4299CFDAF00FE23E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40138E2A7CE4EF610C1CFA29 /* Pods-InstagramClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.debug.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.debug.xcconfig"; sourceTree = "<group>"; };
 		A5D6027A11F01297DDE605B5 /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8316B9C43659E78EC10889E /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 				2057E4C6299BABC900FE23E8 /* Assets.xcassets */,
 				2057E4C8299BABC900FE23E8 /* LaunchScreen.storyboard */,
 				2057E4CB299BABC900FE23E8 /* Info.plist */,
-				2057E4D2299BAD0100FE23E8 /* GoogleService-Info.plist */,
+				2057E4F4299CFDAF00FE23E8 /* GoogleService-Info.plist */,
 			);
 			path = InstagramClone;
 			sourceTree = "<group>";
@@ -171,7 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2057E4CA299BABC900FE23E8 /* LaunchScreen.storyboard in Resources */,
-				2057E4D3299BAD0100FE23E8 /* GoogleService-Info.plist in Resources */,
+				2057E4F5299CFDAF00FE23E8 /* GoogleService-Info.plist in Resources */,
 				2057E4C7299BABC900FE23E8 /* Assets.xcassets in Resources */,
 				2057E4C5299BABC700FE23E8 /* Main.storyboard in Resources */,
 			);

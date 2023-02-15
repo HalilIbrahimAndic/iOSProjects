@@ -6,15 +6,45 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseCore
 
 class UploadViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageText: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        imageView.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectImage))
+        imageView.addGestureRecognizer(gestureRecognizer)
+        
+        
     }
     
+    @objc func selectImage() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true //editing
+        present(picker, animated: true, completion: nil)
+    }
 
+    @IBAction func saveClicked(_ sender: Any) {
+        
+        
+    }
+    
+}
 
+extension UploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        imageView.image = info[.originalImage] as? UIImage  // I'm not 100% sure that user selected an image. so used as? casting
+        self.dismiss(animated: true, completion: nil)
+
+    }
 }

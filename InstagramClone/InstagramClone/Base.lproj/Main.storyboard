@@ -15,14 +15,56 @@
                     <view key="view" contentMode="scaleToFill" id="zSe-hl-etM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectImage" translatesAutoresizingMaskIntoConstraints="NO" id="OLs-pj-iaU">
+                                <rect key="frame" x="57" y="182" width="300" height="250"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHT-e1-qj3">
+                                <rect key="frame" x="57" y="502" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="7bH-YG-Ii5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2b-co-TSN">
+                                <rect key="frame" x="157" y="630" width="100" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="KSa-wf-BKs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Upload">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveClicked:" destination="4uy-k0-sq8" eventType="touchUpInside" id="IHt-vR-Msz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bjz-vT-MMT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OLs-pj-iaU" firstAttribute="trailing" secondItem="bHT-e1-qj3" secondAttribute="trailing" id="8pf-9f-fPQ"/>
+                            <constraint firstItem="OLs-pj-iaU" firstAttribute="centerX" secondItem="zSe-hl-etM" secondAttribute="centerX" id="8u2-BV-9S5"/>
+                            <constraint firstItem="OLs-pj-iaU" firstAttribute="top" secondItem="bjz-vT-MMT" secondAttribute="top" constant="138" id="Pwj-fg-Se2"/>
+                            <constraint firstItem="bHT-e1-qj3" firstAttribute="top" secondItem="OLs-pj-iaU" secondAttribute="bottom" constant="70" id="Rtu-Ep-BLV"/>
+                            <constraint firstItem="bjz-vT-MMT" firstAttribute="bottom" secondItem="w2b-co-TSN" secondAttribute="bottom" constant="123" id="XpH-AL-oys"/>
+                            <constraint firstItem="OLs-pj-iaU" firstAttribute="leading" secondItem="bHT-e1-qj3" secondAttribute="leading" id="aQy-7L-Eqz"/>
+                            <constraint firstItem="w2b-co-TSN" firstAttribute="leading" secondItem="bjz-vT-MMT" secondAttribute="leading" constant="157" id="cZx-Nl-cNG"/>
+                            <constraint firstItem="bHT-e1-qj3" firstAttribute="centerX" secondItem="w2b-co-TSN" secondAttribute="centerX" id="mAr-Zo-IdD"/>
+                            <constraint firstItem="w2b-co-TSN" firstAttribute="top" secondItem="bHT-e1-qj3" secondAttribute="bottom" constant="94" id="tlh-vX-jQL"/>
+                            <constraint firstItem="OLs-pj-iaU" firstAttribute="leading" secondItem="bjz-vT-MMT" secondAttribute="leading" constant="57" id="wDJ-2V-OQ4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="u.circle.fill" catalog="system" id="TLa-wf-8kG"/>
+                    <connections>
+                        <outlet property="imageText" destination="bHT-e1-qj3" id="REH-WK-xDh"/>
+                        <outlet property="imageView" destination="OLs-pj-iaU" id="Jfo-Mz-mvg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZi-8M-9bA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-855" y="-82"/>
+            <point key="canvasLocation" x="-855.07246376811599" y="-82.366071428571431"/>
         </scene>
         <!--Settings-->
         <scene sceneID="VET-i8-GCe">
@@ -78,7 +120,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="A2t-SA-YXM">
             <objects>
-                <tabBarController id="MRs-bk-moO" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="MRs-bk-moO" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="vGQ-ns-5Tg"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kTC-ty-Lds">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -129,7 +171,7 @@
                                     <action selector="signUpClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yb6-nZ-UIS"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hp6-Jq-Cba">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="halil@a.com" borderStyle="roundedRect" placeholder="e-mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hp6-Jq-Cba">
                                 <rect key="frame" x="50" y="213" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="DQZ-XU-18v"/>
@@ -137,7 +179,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piH-Eb-9VR">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piH-Eb-9VR">
                                 <rect key="frame" x="50" y="268" width="314" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Dhr-Ra-ZV5"/>
@@ -189,9 +231,13 @@
     <resources>
         <image name="f.circle.fill" catalog="system" width="128" height="121"/>
         <image name="s.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="selectImage" width="106" height="106"/>
         <image name="u.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
