@@ -7,7 +7,8 @@ target 'InstagramClone' do
 
   # Pods for InstagramClone
   pod 'FirebaseAuth'
-  pod 'FirebaseFirestore'
-  #pod 'FirebaseStorage'
+  # pod 'FirebaseFirestore'
+  pod 'FirebaseCore'
+  pod 'FirebaseStorage'
 
 end

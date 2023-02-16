@@ -6,8 +6,9 @@
 //
 
 import UIKit
-import FirebaseFirestore
+//import FirebaseFirestore
 import FirebaseCore
+import FirebaseStorage
 
 class UploadViewController: UIViewController {
 
@@ -35,7 +36,27 @@ class UploadViewController: UIViewController {
 
     @IBAction func saveClicked(_ sender: Any) {
         
+        let storage = Storage.storage()
+        let storageReference = storage.reference()
+        let mediaFolder = storageReference.child("media")
         
+        if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
+            let imageReference = mediaFolder.child("image.jpg")
+            imageReference.putData(data) { (metaData, error) in
+                if error != nil {
+                    print("hata--1")
+                    print(error?.localizedDescription)
+                } else {
+                    imageReference.downloadURL { (url, error) in
+                        if error == nil {
+                            print("hata--2")
+                            let imageURL = url?.absoluteString
+                            print(imageURL)
+                        }
+                    }
+                }
+            }
+        }
     }
     
 }
