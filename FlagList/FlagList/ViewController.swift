@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UITableViewController {
     
     var flags: [String] = []
+    var countryName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class ViewController: UITableViewController {
             }
         }
 
+        tableView.separatorStyle = .singleLine
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -33,13 +35,25 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Flags", for: indexPath)
         cell.imageView?.image = UIImage(named: flags[indexPath.row])
+        
+        countryName = (flags[indexPath.row] as NSString).deletingPathExtension
+        cell.textLabel?.text = countryName
                
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.flagName = flags[indexPath.row]
+            vc.countryName = (flags[indexPath.row] as NSString).deletingPathExtension
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        50
+    }
 
 }
 
